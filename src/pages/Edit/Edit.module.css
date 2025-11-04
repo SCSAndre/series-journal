@@ -1,0 +1,74 @@
+.edit {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-size: 2.5rem;
+}
+
+.header p {
+  margin: 0;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.notFound {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.notFound h2 {
+  margin: 0 0 1rem 0;
+  color: #e74c3c;
+  font-size: 2rem;
+}
+
+.notFound p {
+  margin: 0 0 2rem 0;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.backButton {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.backButton:hover {
+  background: #5568d3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+@media (max-width: 768px) {
+  .edit {
+    padding: 1rem;
+  }
+
+  .header h1 {
+    font-size: 1.75rem;
+  }
+
+  .header p {
+    font-size: 1rem;
+  }
+}

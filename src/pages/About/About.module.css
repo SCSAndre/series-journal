@@ -1,0 +1,173 @@
+.about {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  color: white;
+}
+
+.header h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.5rem;
+}
+
+.tagline {
+  margin: 0;
+  font-size: 1.2rem;
+  opacity: 0.95;
+}
+
+.content {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.section h2 {
+  color: #667eea;
+  margin: 0 0 1rem 0;
+  font-size: 1.75rem;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 0.5rem;
+}
+
+.section p {
+  line-height: 1.8;
+  color: #555;
+  margin: 0 0 1rem 0;
+}
+
+.featureList,
+.architectureList,
+.outcomesList,
+.futureList {
+  list-style: none;
+  padding: 0;
+}
+
+.featureList li,
+.architectureList li,
+.outcomesList li,
+.futureList li {
+  padding: 0.75rem 0;
+  padding-left: 2rem;
+  position: relative;
+  line-height: 1.6;
+  color: #555;
+}
+
+.featureList li::before,
+.architectureList li::before,
+.outcomesList li::before,
+.futureList li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #667eea;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.techCard {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+
+.techCard:hover {
+  border-color: #667eea;
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.techIcon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.techCard h3 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+.techCard p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.developer {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.developer p {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.developer a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.developer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 1rem;
+  }
+
+  .header h1 {
+    font-size: 1.75rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .content {
+    padding: 1.5rem;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  .techGrid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+}
