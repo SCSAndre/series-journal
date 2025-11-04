@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSeries } from '../../context/SeriesContext';
+import { useToast } from '../../context/ToastContext';
 import SerieForm from '../../components/SerieForm/SerieForm';
 import styles from './Edit.module.css';
 
@@ -7,6 +8,7 @@ const Edit = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { getSerie } = useSeries();
+  const { success } = useToast();
 
   const serie = getSerie(id);
 
@@ -28,6 +30,7 @@ const Edit = () => {
   }
 
   const handleSuccess = () => {
+    success('Series updated successfully! Redirecting...');
     setTimeout(() => {
       navigate('/list');
     }, 1500);

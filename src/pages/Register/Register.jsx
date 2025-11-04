@@ -1,11 +1,14 @@
 import { useNavigate } from 'react-router-dom';
+import { useToast } from '../../context/ToastContext';
 import SerieForm from '../../components/SerieForm/SerieForm';
 import styles from './Register.module.css';
 
 const Register = () => {
   const navigate = useNavigate();
+  const { success } = useToast();
 
   const handleSuccess = () => {
+    success('Series added successfully! Redirecting...');
     // Optional: Navigate to list after successful registration
     setTimeout(() => {
       navigate('/list');

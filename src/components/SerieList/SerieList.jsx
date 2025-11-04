@@ -2,12 +2,20 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useSeries } from '../../context/SeriesContext';
+import { useEscapeKey } from '../../hooks/useKeyboardShortcuts';
 import styles from './SerieList.module.css';
 
 const SerieList = ({ series }) => {
   const navigate = useNavigate();
   const { deleteSerie } = useSeries();
   const [deleteConfirm, setDeleteConfirm] = useState(null);
+
+  // Close delete modal on ESC key
+  useEscapeKey(() => {
+    if (deleteConfirm) {
+      setDeleteConfirm(null);
+    }
+  });
 
   const handleEdit = (id) => {
     navigate(`/edit/${id}`);
