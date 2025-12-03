@@ -10,7 +10,7 @@ A comprehensive React-based CRUD application for tracking and managing watched T
 
 **Series Journal** is a full-featured web application for TV series enthusiasts to track and manage their watching history. Built with modern React practices, it demonstrates complete CRUD operations, advanced filtering, statistics visualization, and persistent local storage.
 
-**🎓 Academic Project**: Frontend Development Course - Phase 1  
+**🎓 Academic Project**: Frontend Development Course - Phase 2
 **👨‍💻 Developer**: [André Safar](https://github.com/SCSAndre)
 
 ---
@@ -365,9 +365,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **André Safar**
 - GitHub: [@SCSAndre](https://github.com/SCSAndre)
-- Project: Frontend Development Course - Phase 1
+- Project: Frontend Development Course - Phase 2
 - Institution: College Project
-- Year: 2024-2025
+- Year: 2025
 
 ---
 
