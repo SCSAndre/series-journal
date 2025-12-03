@@ -143,6 +143,92 @@ series-journal/
 
 ---
 
+## 🧩 Component Architecture
+
+### Core Components
+
+#### **NavBar** (`src/components/NavBar/`)
+- **Purpose**: Primary navigation across all pages
+- **Features**: Active link highlighting, responsive design, smooth transitions
+- **Props**: None (uses React Router's useLocation)
+
+#### **SerieForm** (`src/components/SerieForm/`)
+- **Purpose**: Handles both adding new series and editing existing ones
+- **Features**: Real-time validation, visual feedback, controlled inputs, sanitization
+- **Props**: `serieToEdit` (optional), `onSuccess` (callback), `onCancel` (callback)
+- **Form Fields**: Title, seasons, release date, director, production company, category, date watched
+
+#### **SerieList** (`src/components/SerieList/`)
+- **Purpose**: Displays series collection in responsive card layout
+- **Features**: Edit/delete actions, confirmation modals, hover effects, empty states
+- **Props**: `series` (array of series objects)
+
+#### **Loading** (`src/components/Loading/`)
+- **Purpose**: Loading spinner with customizable message
+- **Features**: Accessible design, CSS animations
+- **Props**: `message` (optional custom text)
+
+#### **Toast** (`src/components/Toast/`)
+- **Purpose**: Non-blocking notification system
+- **Features**: Auto-dismiss, success/error states, animations
+- **Integration**: Connected to ToastContext
+
+#### **ErrorBoundary** (`src/components/ErrorBoundary/`)
+- **Purpose**: Catches React errors and displays fallback UI
+- **Features**: Error logging, user-friendly error messages
+- **Scope**: Wraps entire application
+
+### Context Providers
+
+#### **SeriesContext** (`src/context/SeriesContext.jsx`)
+- **Purpose**: Global state management for series data
+- **Features**: CRUD operations, filtering, sorting, statistics
+- **Provides**: series array, loading states, search/sort functions
+
+#### **ToastContext** (`src/context/ToastContext.jsx`)
+- **Purpose**: Global notification system
+- **Features**: Queue management, auto-dismiss timers
+- **Integration**: Used by forms and API operations
+
+### Page Components
+
+#### **Home** (`src/pages/Home/`)
+- **Purpose**: Welcome page with overview and quick actions
+- **Features**: Statistics preview, call-to-action buttons, sample data loader
+
+#### **List** (`src/pages/List/`)
+- **Purpose**: Main series collection view
+- **Features**: Search bar, sort controls, series grid, empty states
+
+#### **Register** (`src/pages/Register/`)
+- **Purpose**: Add new series form page
+- **Features**: SerieForm integration, success handling, validation
+
+#### **Edit** (`src/pages/Edit/`)
+- **Purpose**: Edit existing series
+- **Features**: Pre-filled form, route parameters, update confirmation
+
+#### **Statistics** (`src/pages/Statistics/`)
+- **Purpose**: Data visualization and insights
+- **Features**: Charts, category distribution, recently watched, totals
+
+#### **About** (`src/pages/About/`)
+- **Purpose**: Project information and documentation
+- **Features**: Technology stack details, learning outcomes
+
+### Utility Modules
+
+#### **sanitize.js** (`src/utils/sanitize.js`)
+- **Purpose**: Input sanitization and validation
+- **Functions**: `sanitizeInput()`, `sanitizeObject()`, `sanitizeEmail()`
+- **Security**: XSS prevention, script tag removal
+
+#### **useKeyboardShortcuts** (`src/hooks/useKeyboardShortcuts.js`)
+- **Purpose**: Custom hooks for keyboard interactions
+- **Features**: ESC key handling, shortcut management
+
+---
+
 ## 💾 Data Model
 
 ```javascript
@@ -185,14 +271,34 @@ VITE_API_BASE_URL=http://localhost:5000
 
 ## 🧪 Testing
 
+### Automated Tests ✅
+The project includes a comprehensive test suite with **18 passing tests**:
+
 ```bash
-# Currently no automated tests (Phase 2 feature)
-# Manual testing recommended:
-# 1. Add/Edit/Delete series
-# 2. Test search and sort functionality
-# 3. Verify responsiveness on different screen sizes
-# 4. Test with sample data
+# Run all tests once
+npm test
+
+# Run tests in watch mode  
+npm test -- --watch
+
+# Run tests with UI dashboard
+npm test:ui
+
+# Run specific test file
+npm test -- src/utils/sanitize.test.js
 ```
+
+**Test Coverage:**
+- ✅ Utility functions (sanitization, validation)
+- ✅ UI components (Loading, Forms)
+- ✅ 18/18 tests passing
+
+### Manual Testing
+Recommended manual tests:
+1. Add/Edit/Delete series operations
+2. Search and sort functionality  
+3. Responsive design on different screen sizes
+4. Form validation and error handling
 
 ---
 
