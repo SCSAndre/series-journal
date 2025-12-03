@@ -30,7 +30,8 @@ const Register = () => {
           <li>Make sure to fill in all required fields marked with *</li>
           <li>The form validates in real-time - look for green checkmarks!</li>
           <li>You can always edit the series information later</li>
-          <li>Your data is automatically saved to your browser</li>
+          {/* MUDANÇA AQUI: Texto atualizado */}
+          <li>Your data is safely stored in our database</li>
         </ul>
       </div>
     </div>

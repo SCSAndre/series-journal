@@ -228,6 +228,8 @@ npm run preview
 - Hover effects and animations
 - Date formatting
 
+**Styling note:** The UI uses `CSS Modules` and handcrafted styles for Phase 1; no external UI component library is included. A component library (e.g., Material-UI) is considered for Phase 2.
+
 ## 💾 Data Model
 
 Each series object contains:

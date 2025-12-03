@@ -8,11 +8,15 @@ import styles from './SerieList.module.css';
 const SerieList = ({ series }) => {
   const navigate = useNavigate();
   const { deleteSerie } = useSeries();
+  
+  // Estado para controlar qual item está sendo deletado
   const [deleteConfirm, setDeleteConfirm] = useState(null);
+  // Estado para feedback visual de carregamento durante a exclusão
+  const [isDeleting, setIsDeleting] = useState(false);
 
   // Close delete modal on ESC key
   useEscapeKey(() => {
-    if (deleteConfirm) {
+    if (deleteConfirm && !isDeleting) {
       setDeleteConfirm(null);
     }
   });
@@ -25,16 +29,29 @@ const SerieList = ({ series }) => {
     setDeleteConfirm(id);
   };
 
-  const handleDeleteConfirm = (id) => {
-    deleteSerie(id);
-    setDeleteConfirm(null);
+  const handleDeleteConfirm = async (id) => {
+    setIsDeleting(true);
+    try {
+      await deleteSerie(id);
+      // O modal fecha automaticamente porque o item some da lista 'series'
+      // Mas por segurança, limpamos o estado:
+      setDeleteConfirm(null);
+    } catch (error) {
+      console.error("Error deleting series:", error);
+      alert("Failed to delete series. Please try again.");
+    } finally {
+      setIsDeleting(false);
+    }
   };
 
   const handleDeleteCancel = () => {
-    setDeleteConfirm(null);
+    if (!isDeleting) {
+      setDeleteConfirm(null);
+    }
   };
 
   const formatDate = (dateString) => {
+    if (!dateString) return 'N/A';
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', { 
       year: 'numeric', 
@@ -63,6 +80,7 @@ const SerieList = ({ series }) => {
     <div className={styles.seriesList}>
       {series.map((serie) => (
         <div key={serie.id} className={styles.card}>
+          {/* Modal de Confirmação de Exclusão */}
           {deleteConfirm === serie.id && (
             <div className={styles.deleteOverlay}>
               <div className={styles.deleteModal}>
@@ -72,12 +90,15 @@ const SerieList = ({ series }) => {
                   <button 
                     className={styles.confirmDelete}
                     onClick={() => handleDeleteConfirm(serie.id)}
+                    disabled={isDeleting}
+                    style={{ opacity: isDeleting ? 0.7 : 1, cursor: isDeleting ? 'wait' : 'pointer' }}
                   >
-                    Yes, Delete
+                    {isDeleting ? 'Deleting...' : 'Yes, Delete'}
                   </button>
                   <button 
                     className={styles.cancelDelete}
                     onClick={handleDeleteCancel}
+                    disabled={isDeleting}
                   >
                     Cancel
                   </button>
@@ -141,14 +162,15 @@ const SerieList = ({ series }) => {
 SerieList.propTypes = {
   series: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      numberOfSeasons: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-      releaseDate: PropTypes.string.isRequired,
-      director: PropTypes.string.isRequired,
-      productionCompany: PropTypes.string.isRequired,
-      category: PropTypes.string.isRequired,
-      dateWatched: PropTypes.string.isRequired,
+      // Atualizado: ID agora aceita string ou number (comum em APIs)
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      title: PropTypes.string,
+      numberOfSeasons: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      releaseDate: PropTypes.string,
+      director: PropTypes.string,
+      productionCompany: PropTypes.string,
+      category: PropTypes.string,
+      dateWatched: PropTypes.string,
     })
   ).isRequired,
 };

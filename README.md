@@ -4,7 +4,7 @@ A comprehensive React-based CRUD application for tracking and managing watched T
 
 [![React](https://img.shields.io/badge/React-19.x-blue)](https://react.dev/) [![Vite](https://img.shields.io/badge/Vite-7.x-purple)](https://vitejs.dev/) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-![Series Journal Demo](https://via.placeholder.com/800x400/667eea/ffffff?text=Series+Journal+App)
+![Series Journal Demo](screenshots/home.svg)
 
 ## 🎯 Overview
 
@@ -45,6 +45,8 @@ A comprehensive React-based CRUD application for tracking and managing watched T
 | **ESLint** | 9.36.0 | Code quality |
 
 ---
+
+**Note:** This project uses custom styles implemented with `CSS Modules` for Phase 1. No external UI component library is included yet — see the Roadmap for planned UI library adoption in Phase 2.
 
 ## 🚀 Quick Start
 
@@ -131,13 +133,13 @@ series-journal/
 ## 🎨 Screenshots
 
 ### Home Page
-![Home](https://via.placeholder.com/600x300/667eea/ffffff?text=Home+Page)
+![Home](screenshots/home.svg)
 
 ### Series List
-![List](https://via.placeholder.com/600x300/667eea/ffffff?text=Series+List)
+![List](screenshots/list.svg)
 
 ### Statistics
-![Stats](https://via.placeholder.com/600x300/667eea/ffffff?text=Statistics)
+![Stats](screenshots/statistics.svg)
 
 ---
 
@@ -164,7 +166,14 @@ series-journal/
 ## 🔧 Configuration
 
 ### Environment Variables
-None required for Phase 1 (client-side only).
+If you run the optional backend API, set the base URL with Vite env var `VITE_API_BASE_URL`.
+By default the app falls back to `http://localhost:5000`.
+
+Example `.env` file at project root:
+
+```
+VITE_API_BASE_URL=http://localhost:5000
+```
 
 ### Browser Support
 - Chrome/Edge (Chromium) ✅

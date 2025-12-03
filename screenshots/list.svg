@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
+  <rect width="100%" height="100%" fill="#764ba2"/>
+  <g transform="translate(60,80)">
+    <rect width="1080" height="440" rx="20" fill="#fff" />
+    <text x="540" y="120" font-size="38" font-family="Helvetica, Arial" fill="#333" text-anchor="middle">Series Journal — My Series</text>
+    <text x="540" y="180" font-size="20" font-family="Helvetica, Arial" fill="#555" text-anchor="middle">Card-based list with search, sort and actions</text>
+    <g transform="translate(80,230)">
+      <rect width="280" height="120" rx="10" fill="#f8f9fa" />
+      <rect x="320" width="280" height="120" rx="10" fill="#f8f9fa" />
+      <rect x="640" width="280" height="120" rx="10" fill="#f8f9fa" />
+    </g>
+  </g>
+</svg>

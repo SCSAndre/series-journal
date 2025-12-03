@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
+  <rect width="100%" height="100%" fill="#667eea"/>
+  <g transform="translate(60,80)">
+    <rect width="1080" height="440" rx="20" fill="#fff" />
+    <text x="540" y="120" font-size="38" font-family="Helvetica, Arial" fill="#333" text-anchor="middle">Series Journal — Statistics</text>
+    <text x="540" y="180" font-size="20" font-family="Helvetica, Arial" fill="#555" text-anchor="middle">Category distribution, recent watches and insights</text>
+    <g transform="translate(120,220)">
+      <rect width="880" height="24" rx="12" fill="#f0f0f0" />
+      <rect width="440" height="24" rx="12" fill="#667eea" />
+      <rect y="40" width="880" height="24" rx="12" fill="#f0f0f0" />
+      <rect y="40" width="220" height="24" rx="12" fill="#764ba2" />
+    </g>
+  </g>
+</svg>
